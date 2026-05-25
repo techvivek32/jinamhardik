@@ -1,0 +1,296 @@
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "wouter";
+import { ArrowRight, ExternalLink } from "lucide-react";
+
+const categories = ["All", "Web App", "Mobile App", "SaaS", "ERP/CRM", "Healthcare", "E-commerce", "Real Estate", "AI", "Education"];
+
+const projects = [
+  {
+    slug: "medicare-pro",
+    title: "MediCare Pro",
+    category: "Healthcare",
+    tagline: "Hospital Management SaaS Platform",
+    description: "A comprehensive cloud-based hospital management system serving 3 healthcare institutions with patient records, appointment scheduling, billing, and real-time analytics.",
+    tech: ["React", "Node.js", "PostgreSQL", "AWS"],
+    color: "from-teal-600/30 to-cyan-600/20",
+    border: "border-teal-500/20",
+    badge: "bg-teal-500/10 text-teal-400",
+    metrics: ["40% faster admissions", "60% less paperwork", "3 hospitals onboarded"],
+  },
+  {
+    slug: "shopsphere",
+    title: "ShopSphere",
+    category: "E-commerce",
+    tagline: "Multi-vendor E-commerce Platform",
+    description: "A full-featured multi-vendor marketplace supporting 200+ sellers with real-time inventory, payment processing, and seller analytics dashboards.",
+    tech: ["Next.js", "Stripe", "Redis", "PostgreSQL"],
+    color: "from-orange-600/30 to-amber-600/20",
+    border: "border-orange-500/20",
+    badge: "bg-orange-500/10 text-orange-400",
+    metrics: ["200+ active sellers", "₹2Cr+ monthly GMV", "4.8 app store rating"],
+  },
+  {
+    slug: "propvision",
+    title: "PropVision",
+    category: "Real Estate",
+    tagline: "AI-Powered Real Estate Platform",
+    description: "An intelligent property management and listing platform with AI-driven price predictions, virtual tours, and automated lead management for real estate agencies.",
+    tech: ["React", "Python", "TensorFlow", "Node.js"],
+    color: "from-blue-600/30 to-indigo-600/20",
+    border: "border-blue-500/20",
+    badge: "bg-blue-500/10 text-blue-400",
+    metrics: ["500+ property listings", "35% faster closings", "AI pricing accuracy 94%"],
+  },
+  {
+    slug: "edulearn",
+    title: "EduLearn",
+    category: "Education",
+    tagline: "EdTech Learning Management System",
+    description: "A modern LMS platform supporting live classes, recorded content, assessments, and progress tracking for 5,000+ students across multiple institutions.",
+    tech: ["React", "WebRTC", "Node.js", "MongoDB"],
+    color: "from-violet-600/30 to-purple-600/20",
+    border: "border-violet-500/20",
+    badge: "bg-violet-500/10 text-violet-400",
+    metrics: ["5,000+ active students", "98% course completion", "20+ institutions"],
+  },
+  {
+    slug: "fleettrack",
+    title: "FleetTrack",
+    category: "ERP/CRM",
+    tagline: "Logistics & Fleet Management ERP",
+    description: "End-to-end fleet management and logistics ERP with real-time GPS tracking, route optimization, driver management, and automated maintenance scheduling.",
+    tech: ["React", "Node.js", "Google Maps API", "PostgreSQL"],
+    color: "from-emerald-600/30 to-green-600/20",
+    border: "border-emerald-500/20",
+    badge: "bg-emerald-500/10 text-emerald-400",
+    metrics: ["300+ vehicles tracked", "22% fuel savings", "Real-time visibility"],
+  },
+  {
+    slug: "fintrack",
+    title: "FinTrack Pro",
+    category: "SaaS",
+    tagline: "Financial Analytics SaaS",
+    description: "A B2B financial analytics platform enabling CFOs and finance teams to consolidate multi-source data, automate reporting, and gain real-time cash flow insights.",
+    tech: ["Next.js", "Python", "PostgreSQL", "AWS Lambda"],
+    color: "from-sky-600/30 to-blue-600/20",
+    border: "border-sky-500/20",
+    badge: "bg-sky-500/10 text-sky-400",
+    metrics: ["50+ enterprise clients", "80% reporting time saved", "$10M+ tracked monthly"],
+  },
+  {
+    slug: "buildhub",
+    title: "BuildHub",
+    category: "ERP/CRM",
+    tagline: "Construction Project Management CRM",
+    description: "A purpose-built CRM and project management platform for construction companies — covering project timelines, contractor management, purchase orders, and client billing.",
+    tech: ["React", "Node.js", "PostgreSQL", "Stripe"],
+    color: "from-amber-600/30 to-yellow-600/20",
+    border: "border-amber-500/20",
+    badge: "bg-amber-500/10 text-amber-400",
+    metrics: ["45 construction firms", "30% fewer delays", "Full project visibility"],
+  },
+  {
+    slug: "aichat",
+    title: "NexusAI",
+    category: "AI",
+    tagline: "Enterprise AI Chat Assistant",
+    description: "A customizable AI-powered customer support and internal knowledge assistant integrated with company documents, CRMs, and helpdesks via RAG architecture.",
+    tech: ["React", "OpenAI", "Python", "Pinecone"],
+    color: "from-rose-600/30 to-pink-600/20",
+    border: "border-rose-500/20",
+    badge: "bg-rose-500/10 text-rose-400",
+    metrics: ["70% ticket deflection", "24/7 availability", "10 enterprise deployments"],
+  },
+  {
+    slug: "menumaster",
+    title: "MenuMaster",
+    category: "Web App",
+    tagline: "Restaurant Digital Ordering Platform",
+    description: "A QR-based digital menu and ordering system for restaurants, enabling contactless ordering, kitchen display management, and real-time table tracking.",
+    tech: ["React", "Node.js", "WebSockets", "Stripe"],
+    color: "from-fuchsia-600/30 to-violet-600/20",
+    border: "border-fuchsia-500/20",
+    badge: "bg-fuchsia-500/10 text-fuchsia-400",
+    metrics: ["150+ restaurants", "25% increase in AOV", "Zero paper menus"],
+  },
+  {
+    slug: "healthfit",
+    title: "HealthFit",
+    category: "Mobile App",
+    tagline: "Fitness & Wellness Mobile App",
+    description: "A React Native fitness app with personalized workout plans, nutrition tracking, live coaching sessions, and wearable device integrations for iOS and Android.",
+    tech: ["React Native", "Node.js", "PostgreSQL", "HealthKit"],
+    color: "from-green-600/30 to-teal-600/20",
+    border: "border-green-500/20",
+    badge: "bg-green-500/10 text-green-400",
+    metrics: ["50,000+ downloads", "4.9 app store rating", "30min avg session time"],
+  },
+  {
+    slug: "claimmgr",
+    title: "ClaimMGR",
+    category: "SaaS",
+    tagline: "Insurance Claims Management SaaS",
+    description: "A cloud-native insurance claims processing platform that automates documentation, adjuster workflows, fraud detection, and settlement tracking.",
+    tech: ["React", "Python", "AWS", "PostgreSQL"],
+    color: "from-indigo-600/30 to-blue-600/20",
+    border: "border-indigo-500/20",
+    badge: "bg-indigo-500/10 text-indigo-400",
+    metrics: ["60% faster settlements", "85% automation rate", "4 insurance companies"],
+  },
+  {
+    slug: "hrbrain",
+    title: "HRBrain",
+    category: "ERP/CRM",
+    tagline: "HR & Payroll Management Platform",
+    description: "A comprehensive HR management suite covering recruitment, onboarding, attendance, leave management, payroll processing, and performance reviews.",
+    tech: ["React", "Node.js", "PostgreSQL", "Razorpay"],
+    color: "from-cyan-600/30 to-sky-600/20",
+    border: "border-cyan-500/20",
+    badge: "bg-cyan-500/10 text-cyan-400",
+    metrics: ["2,000+ employees managed", "100% payroll accuracy", "15 companies"],
+  },
+];
+
+export default function Portfolio() {
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  const filtered = activeCategory === "All"
+    ? projects
+    : projects.filter((p) => p.category === activeCategory);
+
+  return (
+    <div className="min-h-screen bg-[#020817] text-white pt-24 pb-20">
+      {/* Hero */}
+      <div className="container mx-auto px-4 max-w-7xl mb-16 text-center">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest bg-primary/10 text-primary border border-primary/20 mb-6">
+            Our Work
+          </span>
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">
+            Projects That{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primary">
+              Define Excellence
+            </span>
+          </h1>
+          <p className="text-lg text-slate-400 max-w-3xl mx-auto">
+            150+ projects delivered across industries. Each one built with precision, passion, and a deep understanding of the business challenges it solves.
+          </p>
+        </motion.div>
+      </div>
+
+      {/* Category Filter */}
+      <div className="container mx-auto px-4 max-w-7xl mb-12">
+        <div className="flex flex-wrap gap-2 justify-center">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                activeCategory === cat
+                  ? "bg-primary text-white shadow-[0_0_15px_rgba(37,99,235,0.4)]"
+                  : "bg-[#0a0f1c] border border-slate-800 text-slate-400 hover:text-white hover:border-slate-600"
+              }`}
+              data-testid={`filter-${cat.toLowerCase().replace("/", "-")}`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Projects Grid */}
+      <div className="container mx-auto px-4 max-w-7xl">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeCategory}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            {filtered.map((project, i) => (
+              <motion.div
+                key={project.slug}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.06 }}
+                whileHover={{ y: -4 }}
+                className={`group rounded-2xl bg-gradient-to-br ${project.color} border ${project.border} overflow-hidden transition-all hover:shadow-[0_8px_40px_rgba(37,99,235,0.15)]`}
+              >
+                {/* Image Placeholder */}
+                <div className="h-44 bg-gradient-to-br from-slate-800/80 to-slate-900/80 flex items-center justify-center relative overflow-hidden">
+                  <div className="absolute inset-0 bg-grid-white/[0.03] bg-[size:20px_20px]" />
+                  <div className="text-center z-10">
+                    <div className="text-4xl font-black text-white/20">{project.title.slice(0, 2).toUpperCase()}</div>
+                    <p className="text-xs text-slate-500 mt-1">{project.tagline}</p>
+                  </div>
+                </div>
+
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className={`text-xs px-2.5 py-1 rounded-full font-medium ${project.badge}`}>
+                      {project.category}
+                    </span>
+                    <Link href={`/portfolio/${project.slug}`} className="opacity-0 group-hover:opacity-100 transition-opacity">
+                      <ExternalLink className="h-4 w-4 text-slate-400 hover:text-white" />
+                    </Link>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-1">{project.title}</h3>
+                  <p className="text-xs text-slate-500 font-medium mb-3">{project.tagline}</p>
+                  <p className="text-slate-400 text-sm leading-relaxed mb-4 line-clamp-2">{project.description}</p>
+
+                  <div className="flex flex-wrap gap-1.5 mb-5">
+                    {project.tech.slice(0, 3).map((t) => (
+                      <span key={t} className="text-xs px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">{t}</span>
+                    ))}
+                    {project.tech.length > 3 && (
+                      <span className="text-xs px-2 py-0.5 rounded bg-slate-800/80 text-slate-500">+{project.tech.length - 3}</span>
+                    )}
+                  </div>
+
+                  <div className="border-t border-slate-800/60 pt-4">
+                    <div className="grid grid-cols-3 gap-2">
+                      {project.metrics.map((m) => (
+                        <div key={m} className="text-center">
+                          <p className="text-xs text-slate-400 leading-tight">{m}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <Link href={`/portfolio/${project.slug}`}>
+                    <button className="mt-4 flex items-center gap-1.5 text-sm font-medium text-primary hover:gap-3 transition-all">
+                      View Case Study <ArrowRight className="h-4 w-4" />
+                    </button>
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* CTA */}
+      <div className="container mx-auto px-4 max-w-4xl mt-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center p-12 rounded-3xl bg-gradient-to-r from-blue-950/60 to-indigo-950/60 border border-primary/20"
+        >
+          <h2 className="text-3xl font-extrabold mb-4">Your Project Could Be Next</h2>
+          <p className="text-slate-400 mb-8 max-w-xl mx-auto">
+            Let's discuss your idea and build something that makes this list even more impressive.
+          </p>
+          <Link href="/contact">
+            <button className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-primary hover:bg-primary/90 text-white font-semibold transition-all shadow-[0_0_20px_rgba(37,99,235,0.35)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)]">
+              Start Your Project <ArrowRight className="h-4 w-4" />
+            </button>
+          </Link>
+        </motion.div>
+      </div>
+    </div>
+  );
+}
