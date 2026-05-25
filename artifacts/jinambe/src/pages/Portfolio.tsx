@@ -17,6 +17,7 @@ const projects = [
     border: "border-teal-500/20",
     badge: "bg-teal-500/10 text-teal-400",
     metrics: ["40% faster admissions", "60% less paperwork", "3 hospitals onboarded"],
+    image: "https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=700&q=80",
   },
   {
     slug: "shopsphere",
@@ -29,6 +30,7 @@ const projects = [
     border: "border-orange-500/20",
     badge: "bg-orange-500/10 text-orange-400",
     metrics: ["200+ active sellers", "₹2Cr+ monthly GMV", "4.8 app store rating"],
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=700&q=80",
   },
   {
     slug: "propvision",
@@ -41,6 +43,7 @@ const projects = [
     border: "border-blue-500/20",
     badge: "bg-blue-500/10 text-blue-400",
     metrics: ["500+ property listings", "35% faster closings", "AI pricing accuracy 94%"],
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=700&q=80",
   },
   {
     slug: "edulearn",
@@ -53,6 +56,7 @@ const projects = [
     border: "border-violet-500/20",
     badge: "bg-violet-500/10 text-violet-400",
     metrics: ["5,000+ active students", "98% course completion", "20+ institutions"],
+    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=700&q=80",
   },
   {
     slug: "fleettrack",
@@ -65,6 +69,7 @@ const projects = [
     border: "border-emerald-500/20",
     badge: "bg-emerald-500/10 text-emerald-400",
     metrics: ["300+ vehicles tracked", "22% fuel savings", "Real-time visibility"],
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=700&q=80",
   },
   {
     slug: "fintrack",
@@ -77,6 +82,7 @@ const projects = [
     border: "border-sky-500/20",
     badge: "bg-sky-500/10 text-sky-400",
     metrics: ["50+ enterprise clients", "80% reporting time saved", "$10M+ tracked monthly"],
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=700&q=80",
   },
   {
     slug: "buildhub",
@@ -89,6 +95,7 @@ const projects = [
     border: "border-amber-500/20",
     badge: "bg-amber-500/10 text-amber-400",
     metrics: ["45 construction firms", "30% fewer delays", "Full project visibility"],
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=700&q=80",
   },
   {
     slug: "aichat",
@@ -101,6 +108,7 @@ const projects = [
     border: "border-rose-500/20",
     badge: "bg-rose-500/10 text-rose-400",
     metrics: ["70% ticket deflection", "24/7 availability", "10 enterprise deployments"],
+    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=700&q=80",
   },
   {
     slug: "menumaster",
@@ -113,6 +121,7 @@ const projects = [
     border: "border-fuchsia-500/20",
     badge: "bg-fuchsia-500/10 text-fuchsia-400",
     metrics: ["150+ restaurants", "25% increase in AOV", "Zero paper menus"],
+    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=700&q=80",
   },
   {
     slug: "healthfit",
@@ -125,6 +134,7 @@ const projects = [
     border: "border-green-500/20",
     badge: "bg-green-500/10 text-green-400",
     metrics: ["50,000+ downloads", "4.9 app store rating", "30min avg session time"],
+    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=700&q=80",
   },
   {
     slug: "claimmgr",
@@ -137,6 +147,7 @@ const projects = [
     border: "border-indigo-500/20",
     badge: "bg-indigo-500/10 text-indigo-400",
     metrics: ["60% faster settlements", "85% automation rate", "4 insurance companies"],
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=700&q=80",
   },
   {
     slug: "hrbrain",
@@ -149,6 +160,7 @@ const projects = [
     border: "border-cyan-500/20",
     badge: "bg-cyan-500/10 text-cyan-400",
     metrics: ["2,000+ employees managed", "100% payroll accuracy", "15 companies"],
+    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=700&q=80",
   },
 ];
 
@@ -219,24 +231,30 @@ export default function Portfolio() {
                 whileHover={{ y: -4 }}
                 className={`group rounded-2xl bg-gradient-to-br ${project.color} border ${project.border} overflow-hidden transition-all hover:shadow-[0_8px_40px_rgba(37,99,235,0.15)]`}
               >
-                {/* Image Placeholder */}
-                <div className="h-44 bg-gradient-to-br from-slate-800/80 to-slate-900/80 flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-grid-white/[0.03] bg-[size:20px_20px]" />
-                  <div className="text-center z-10">
-                    <div className="text-4xl font-black text-white/20">{project.title.slice(0, 2).toUpperCase()}</div>
-                    <p className="text-xs text-slate-500 mt-1">{project.tagline}</p>
+                {/* Project Image */}
+                <div className="h-48 relative overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <div className="absolute bottom-3 left-4">
+                    <span className={`text-xs px-2.5 py-1 rounded-full font-semibold ${project.badge}`}>
+                      {project.category}
+                    </span>
+                  </div>
+                  <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <Link href={`/portfolio/${project.slug}`}>
+                      <div className="h-8 w-8 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
+                        <ExternalLink className="h-3.5 w-3.5 text-white" />
+                      </div>
+                    </Link>
                   </div>
                 </div>
 
                 <div className="p-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <span className={`text-xs px-2.5 py-1 rounded-full font-medium ${project.badge}`}>
-                      {project.category}
-                    </span>
-                    <Link href={`/portfolio/${project.slug}`} className="opacity-0 group-hover:opacity-100 transition-opacity">
-                      <ExternalLink className="h-4 w-4 text-slate-400 hover:text-white" />
-                    </Link>
-                  </div>
                   <h3 className="text-xl font-bold text-white mb-1">{project.title}</h3>
                   <p className="text-xs text-slate-500 font-medium mb-3">{project.tagline}</p>
                   <p className="text-slate-400 text-sm leading-relaxed mb-4 line-clamp-2">{project.description}</p>

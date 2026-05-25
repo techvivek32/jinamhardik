@@ -11,6 +11,7 @@ const projects: Record<string, {
   teamSize: string;
   tech: string[];
   color: string;
+  image: string;
   overview: string;
   challenge: string;
   solution: string;
@@ -27,6 +28,7 @@ const projects: Record<string, {
     teamSize: "4 engineers, 1 designer",
     tech: ["React", "Node.js", "PostgreSQL", "AWS", "HL7 FHIR", "Redis"],
     color: "from-teal-600/20 to-cyan-600/10",
+    image: "https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=1400&q=80",
     overview: "MediCare Pro is a comprehensive cloud-based hospital management system built to modernize operations across a network of three hospitals in Gujarat. The platform serves doctors, nurses, administrative staff, and hospital management with role-based access to every aspect of patient care and administration.",
     challenge: "The hospital group was running three separate software systems that didn't communicate with each other — a legacy billing system from 2008, a paper-based patient records system, and a disconnected appointment scheduling tool. Patient data was duplicated across systems, billing errors were frequent, and doctors had no access to prior patient history from other branches. The group needed a unified system that could be deployed across all three hospitals simultaneously without disrupting operations.",
     solution: "We designed MediCare Pro as a multi-tenant SaaS platform with complete data isolation between hospital branches, while enabling cross-branch patient record access for authorized physicians. We implemented a real-time synchronization layer using PostgreSQL's listen/notify mechanism, built a custom HL7 FHIR-compliant data layer for patient records, and developed an analytics dashboard that gives hospital management live visibility into occupancy, revenue, and clinical outcomes.",
@@ -64,6 +66,7 @@ const projects: Record<string, {
     teamSize: "3 engineers, 1 designer",
     tech: ["Next.js", "Stripe", "Redis", "PostgreSQL", "Elasticsearch", "AWS S3"],
     color: "from-orange-600/20 to-amber-600/10",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1400&q=80",
     overview: "ShopSphere is a full-featured multi-vendor marketplace platform that empowers 200+ sellers to run their own digital storefronts under a unified platform. The system handles everything from product listings and inventory management to seller payouts and customer analytics.",
     challenge: "A consortium of local retailers wanted to compete with large e-commerce platforms by aggregating their inventory under a single online destination. They needed a platform that gave each seller full autonomy over their product catalog and pricing, while providing customers with a unified shopping cart and checkout experience across multiple sellers.",
     solution: "We built ShopSphere as a headless e-commerce architecture with Next.js App Router for the storefront, a custom Node.js seller dashboard, and Stripe Connect for split payment processing and automated seller payouts. Elasticsearch powers the product search across all 200+ sellers, and Redis handles the shopping cart and session state for near-instant page loads.",
@@ -130,21 +133,35 @@ export default function ProjectDetail() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className={`rounded-3xl bg-gradient-to-br ${project.color} border border-slate-800 p-10 mb-12`}
+          className="rounded-3xl border border-slate-800 overflow-hidden mb-12"
         >
-          <span className="text-xs font-semibold uppercase tracking-widest text-primary bg-primary/10 border border-primary/20 px-3 py-1 rounded-full mb-4 inline-block">
-            {project.category}
-          </span>
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-3">{project.title}</h1>
-          <p className="text-slate-400 text-lg mb-8">{project.tagline}</p>
+          {/* Hero Image */}
+          <div className="relative h-64 md:h-80">
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#020817] via-black/50 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-8">
+              <span className="text-xs font-semibold uppercase tracking-widest text-primary bg-primary/20 border border-primary/30 px-3 py-1 rounded-full mb-3 inline-block backdrop-blur-sm">
+                {project.category}
+              </span>
+              <h1 className="text-4xl md:text-5xl font-extrabold mb-1">{project.title}</h1>
+              <p className="text-slate-300 text-lg">{project.tagline}</p>
+            </div>
+          </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {project.metrics.map((metric) => (
-              <div key={metric.label} className="text-center p-4 rounded-xl bg-black/20 border border-white/5">
-                <p className="text-3xl font-extrabold text-white mb-1">{metric.value}</p>
-                <p className="text-xs text-slate-400">{metric.label}</p>
-              </div>
-            ))}
+          {/* Metrics strip */}
+          <div className={`bg-gradient-to-br ${project.color} p-6`}>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {project.metrics.map((metric) => (
+                <div key={metric.label} className="text-center p-4 rounded-xl bg-black/20 border border-white/5">
+                  <p className="text-3xl font-extrabold text-white mb-1">{metric.value}</p>
+                  <p className="text-xs text-slate-400">{metric.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </motion.div>
 
