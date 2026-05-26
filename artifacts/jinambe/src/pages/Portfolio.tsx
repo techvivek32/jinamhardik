@@ -290,6 +290,62 @@ export default function Portfolio() {
         </AnimatePresence>
       </div>
 
+      {/* Work Samples — actual client UI screenshots */}
+      <div className="container mx-auto px-4 max-w-7xl mt-24 mb-0">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest bg-primary/10 text-primary border border-primary/20 mb-4">
+            Design Snapshots
+          </span>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-3">
+            A Glimpse Inside Our Work
+          </h2>
+          <p className="text-slate-400 max-w-2xl mx-auto">
+            Real UI screens from our delivered projects — precision-crafted interfaces built for performance and clarity.
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-5">
+          {[
+            { src: "/portfolio-svgs/portfolio-1.svg", label: "Dashboard Analytics UI", tag: "SaaS / Web App" },
+            { src: "/portfolio-svgs/portfolio-2.svg", label: "Mobile App Interface", tag: "Flutter / Mobile" },
+            { src: "/portfolio-svgs/portfolio-3.svg", label: "E-commerce Storefront", tag: "E-commerce" },
+            { src: "/portfolio-svgs/portfolio-4.svg", label: "Enterprise CRM Panel", tag: "ERP / CRM" },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08 }}
+              className="group relative rounded-2xl overflow-hidden border border-slate-800 bg-[#0a0f1c] hover:border-primary/30 transition-all"
+            >
+              <div className="overflow-hidden">
+                <img
+                  src={item.src}
+                  alt={item.label}
+                  className="w-full h-52 object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+                <div>
+                  <p className="text-white font-bold text-sm">{item.label}</p>
+                  <p className="text-slate-400 text-xs mt-0.5">{item.tag}</p>
+                </div>
+                <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-primary/20 text-primary border border-primary/30">
+                  Delivered
+                </span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
       {/* CTA */}
       <div className="container mx-auto px-4 max-w-4xl mt-20">
         <motion.div

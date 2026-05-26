@@ -49,6 +49,34 @@ const testimonials = [
     location: "Surat",
     rating: 5,
   },
+  {
+    quote: "The Flutter app Jinambe built for us has a 4.9-star rating on both app stores. Our customers love it — it's fast, polished, and works flawlessly.",
+    name: "Neha Agarwal",
+    role: "Product Head, ShopSphere",
+    location: "Bangalore",
+    rating: 5,
+  },
+  {
+    quote: "Hardik and his team took our vague idea and turned it into a fully functional CRM in just 8 weeks. The attention to detail was extraordinary.",
+    name: "Siddharth Joshi",
+    role: "Director, NexaRetail Group",
+    location: "Ahmedabad",
+    rating: 5,
+  },
+  {
+    quote: "Post-launch support from Jinambe is unlike anything I've experienced. They're responsive, proactive, and treat our product like their own.",
+    name: "Manali Patel",
+    role: "CEO, EduLearn Platform",
+    location: "Vadodara",
+    rating: 5,
+  },
+  {
+    quote: "We needed a complex logistics tracking dashboard in a very tight timeline. Jinambe not only delivered on time but also suggested improvements we hadn't thought of.",
+    name: "Vikram Desai",
+    role: "Operations Director, FleetTrack India",
+    location: "Rajkot",
+    rating: 5,
+  },
 ];
 
 const whyUs = [
@@ -446,7 +474,7 @@ export default function Home() {
             </motion.div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
               <motion.div
                 key={i}
