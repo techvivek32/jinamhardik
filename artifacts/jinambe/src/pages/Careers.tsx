@@ -243,6 +243,61 @@ export default function Careers() {
         </div>
       </div>
 
+      {/* Life at Jinambe — Office Photos */}
+      <div className="container mx-auto px-4 max-w-7xl mb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-10"
+        >
+          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest bg-primary/10 text-primary border border-primary/20 mb-3">
+            Life at Jinambe
+          </span>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-white">
+            A Place to Do Your Best Work
+          </h2>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-5">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="relative rounded-2xl overflow-hidden border border-slate-800 group"
+          >
+            <img
+              src="/office-team.png"
+              alt="Jinambe Technologies engineering floor"
+              className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+            <div className="absolute bottom-5 left-5">
+              <p className="text-white font-bold text-sm">Engineering Floor</p>
+              <p className="text-slate-400 text-xs">Where our engineers build the future</p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="relative rounded-2xl overflow-hidden border border-slate-800 group"
+          >
+            <img
+              src="/office-meeting.png"
+              alt="Jinambe Technologies client meeting"
+              className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+            <div className="absolute bottom-5 left-5">
+              <p className="text-white font-bold text-sm">Client Collaboration</p>
+              <p className="text-slate-400 text-xs">Working closely with clients on every brief</p>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
       {/* Open Positions */}
       <div className="container mx-auto px-4 max-w-5xl mb-20">
         <div className="flex items-center gap-4 mb-10">

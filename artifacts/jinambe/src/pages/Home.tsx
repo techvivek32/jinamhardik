@@ -260,44 +260,78 @@ export default function Home() {
       {/* Why Choose Us */}
       <section className="py-24 bg-[#0a0f1c]">
         <div className="container mx-auto px-4 max-w-7xl">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest bg-primary/10 text-primary border border-primary/20 mb-6">
-                Why Jinambe
-              </span>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
-                We're a Partner, <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primary">
-                  Not Just a Vendor
+          <div className="grid lg:grid-cols-2 gap-14 items-center">
+            {/* Office photo — left */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="absolute -inset-3 bg-gradient-to-br from-primary/20 to-blue-600/10 rounded-3xl blur-xl" />
+              <div className="relative rounded-2xl overflow-hidden border border-slate-700/60 shadow-2xl">
+                <img
+                  src="/office-team.png"
+                  alt="Jinambe Technologies team at work"
+                  className="w-full h-80 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-5 right-5 flex gap-3">
+                  {[
+                    { value: "150+", label: "Projects" },
+                    { value: "80+", label: "Clients" },
+                    { value: "98%", label: "Retention" },
+                  ].map((s) => (
+                    <div key={s.label} className="flex-1 bg-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-2.5 text-center">
+                      <p className="text-white font-extrabold text-lg leading-none">{s.value}</p>
+                      <p className="text-slate-400 text-xs mt-0.5">{s.label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Text + cards — right */}
+            <div>
+              <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+                <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest bg-primary/10 text-primary border border-primary/20 mb-6">
+                  Why Jinambe
                 </span>
-              </h2>
-              <p className="text-slate-400 text-lg leading-relaxed mb-8">
-                We've seen what bad software costs businesses — wasted money, missed opportunities, and frustrated teams. That's why every project we take on receives the same level of care and precision we'd give our own product.
-              </p>
+                <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-5 leading-tight">
+                  We're a Partner, <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primary">
+                    Not Just a Vendor
+                  </span>
+                </h2>
+                <p className="text-slate-400 leading-relaxed mb-8">
+                  We've seen what bad software costs businesses — wasted money, missed opportunities, and frustrated teams. That's why every project we take on receives the same level of care and precision we'd give our own product.
+                </p>
+              </motion.div>
+
+              <div className="grid grid-cols-2 gap-3 mb-7">
+                {whyUs.map((item, i) => (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.07 }}
+                    className="p-4 rounded-xl bg-[#020817] border border-slate-800 hover:border-primary/30 transition-all"
+                  >
+                    <div className="h-8 w-8 rounded-lg bg-primary/10 flex items-center justify-center mb-2.5">
+                      <item.icon className="h-3.5 w-3.5 text-primary" />
+                    </div>
+                    <h4 className="text-xs font-bold text-white mb-1">{item.title}</h4>
+                    <p className="text-slate-500 text-xs leading-relaxed">{item.desc}</p>
+                  </motion.div>
+                ))}
+              </div>
+
               <Link href="/about">
                 <Button variant="outline" className="border-slate-700 text-white hover:bg-slate-800">
                   Our Story <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
-            </motion.div>
-
-            <div className="grid grid-cols-2 gap-4">
-              {whyUs.map((item, i) => (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.07 }}
-                  className="p-5 rounded-2xl bg-[#020817] border border-slate-800 hover:border-primary/30 transition-all"
-                >
-                  <div className="h-9 w-9 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
-                    <item.icon className="h-4 w-4 text-primary" />
-                  </div>
-                  <h4 className="text-sm font-bold text-white mb-1.5">{item.title}</h4>
-                  <p className="text-slate-500 text-xs leading-relaxed">{item.desc}</p>
-                </motion.div>
-              ))}
             </div>
           </div>
         </div>
