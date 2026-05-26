@@ -239,6 +239,60 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Client Trust Bar */}
+      <section className="py-12 bg-[#020817] border-t border-slate-800/50 overflow-hidden">
+        <div className="container mx-auto px-4 max-w-7xl mb-6 text-center">
+          <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">
+            Trusted by companies across industries
+          </p>
+        </div>
+        <div className="relative">
+          {/* fade edges */}
+          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#020817] to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#020817] to-transparent z-10 pointer-events-none" />
+
+          <div className="flex gap-6 animate-[scroll_28s_linear_infinite]">
+            {[
+              { name: "FinEdge Technologies", industry: "FinTech" },
+              { name: "CarePoint Hospitals", industry: "Healthcare" },
+              { name: "PropVision Realty", industry: "Real Estate" },
+              { name: "ShopSphere", industry: "E-commerce" },
+              { name: "EduLearn Platform", industry: "EdTech" },
+              { name: "FleetTrack India", industry: "Logistics" },
+              { name: "NexaRetail Group", industry: "Retail" },
+              { name: "BuildHub Solutions", industry: "Construction" },
+              { name: "NexusAI Labs", industry: "AI / SaaS" },
+              { name: "HRBrain Systems", industry: "HR Tech" },
+              { name: "FinEdge Technologies", industry: "FinTech" },
+              { name: "CarePoint Hospitals", industry: "Healthcare" },
+              { name: "PropVision Realty", industry: "Real Estate" },
+              { name: "ShopSphere", industry: "E-commerce" },
+              { name: "EduLearn Platform", industry: "EdTech" },
+              { name: "FleetTrack India", industry: "Logistics" },
+              { name: "NexaRetail Group", industry: "Retail" },
+              { name: "BuildHub Solutions", industry: "Construction" },
+              { name: "NexusAI Labs", industry: "AI / SaaS" },
+              { name: "HRBrain Systems", industry: "HR Tech" },
+            ].map((client, i) => (
+              <div
+                key={i}
+                className="flex-shrink-0 flex items-center gap-3 px-6 py-3 rounded-xl bg-[#0a0f1c] border border-slate-800/60 whitespace-nowrap"
+              >
+                <div className="h-7 w-7 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
+                  <span className="text-primary font-extrabold text-xs leading-none">
+                    {client.name[0]}
+                  </span>
+                </div>
+                <div>
+                  <p className="text-white text-sm font-semibold leading-none">{client.name}</p>
+                  <p className="text-slate-500 text-xs mt-0.5">{client.industry}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Services Overview */}
       <section className="py-24 bg-[#020817]">
         <div className="container mx-auto px-4 max-w-7xl">
