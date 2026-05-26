@@ -17,7 +17,8 @@ const projects = [
     border: "border-teal-500/20",
     badge: "bg-teal-500/10 text-teal-400",
     metrics: ["40% faster admissions", "60% less paperwork", "3 hospitals onboarded"],
-    image: "https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=700&q=80",
+    url: "app.medicare-pro.io",
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=900&q=90",
   },
   {
     slug: "shopsphere",
@@ -30,7 +31,8 @@ const projects = [
     border: "border-orange-500/20",
     badge: "bg-orange-500/10 text-orange-400",
     metrics: ["200+ active sellers", "₹2Cr+ monthly GMV", "4.8 app store rating"],
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=700&q=80",
+    url: "shop.shopsphere.io",
+    image: "https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&w=900&q=90",
   },
   {
     slug: "propvision",
@@ -43,7 +45,8 @@ const projects = [
     border: "border-blue-500/20",
     badge: "bg-blue-500/10 text-blue-400",
     metrics: ["500+ property listings", "35% faster closings", "AI pricing accuracy 94%"],
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=700&q=80",
+    url: "app.propvision.io",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=900&q=90",
   },
   {
     slug: "edulearn",
@@ -56,7 +59,8 @@ const projects = [
     border: "border-violet-500/20",
     badge: "bg-violet-500/10 text-violet-400",
     metrics: ["5,000+ active students", "98% course completion", "20+ institutions"],
-    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=700&q=80",
+    url: "learn.edulearn.io",
+    image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=900&q=90",
   },
   {
     slug: "fleettrack",
@@ -69,7 +73,8 @@ const projects = [
     border: "border-emerald-500/20",
     badge: "bg-emerald-500/10 text-emerald-400",
     metrics: ["300+ vehicles tracked", "22% fuel savings", "Real-time visibility"],
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=700&q=80",
+    url: "track.fleettrack.io",
+    image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=900&q=90",
   },
   {
     slug: "fintrack",
@@ -82,7 +87,8 @@ const projects = [
     border: "border-sky-500/20",
     badge: "bg-sky-500/10 text-sky-400",
     metrics: ["50+ enterprise clients", "80% reporting time saved", "$10M+ tracked monthly"],
-    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=700&q=80",
+    url: "app.fintrackpro.io",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=90",
   },
   {
     slug: "buildhub",
@@ -95,7 +101,8 @@ const projects = [
     border: "border-amber-500/20",
     badge: "bg-amber-500/10 text-amber-400",
     metrics: ["45 construction firms", "30% fewer delays", "Full project visibility"],
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=700&q=80",
+    url: "app.buildhub.io",
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=90",
   },
   {
     slug: "aichat",
@@ -108,7 +115,8 @@ const projects = [
     border: "border-rose-500/20",
     badge: "bg-rose-500/10 text-rose-400",
     metrics: ["70% ticket deflection", "24/7 availability", "10 enterprise deployments"],
-    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=700&q=80",
+    url: "chat.nexusai.io",
+    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=900&q=90",
   },
   {
     slug: "menumaster",
@@ -121,7 +129,8 @@ const projects = [
     border: "border-fuchsia-500/20",
     badge: "bg-fuchsia-500/10 text-fuchsia-400",
     metrics: ["150+ restaurants", "25% increase in AOV", "Zero paper menus"],
-    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=700&q=80",
+    url: "order.menumaster.io",
+    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=90",
   },
   {
     slug: "healthfit",
@@ -134,7 +143,8 @@ const projects = [
     border: "border-green-500/20",
     badge: "bg-green-500/10 text-green-400",
     metrics: ["50,000+ downloads", "4.9 app store rating", "30min avg session time"],
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=700&q=80",
+    url: "app.healthfit.io",
+    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=900&q=90",
   },
   {
     slug: "claimmgr",
@@ -147,7 +157,8 @@ const projects = [
     border: "border-indigo-500/20",
     badge: "bg-indigo-500/10 text-indigo-400",
     metrics: ["60% faster settlements", "85% automation rate", "4 insurance companies"],
-    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=700&q=80",
+    url: "app.claimmgr.io",
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=90",
   },
   {
     slug: "hrbrain",
@@ -160,7 +171,8 @@ const projects = [
     border: "border-cyan-500/20",
     badge: "bg-cyan-500/10 text-cyan-400",
     metrics: ["2,000+ employees managed", "100% payroll accuracy", "15 companies"],
-    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=700&q=80",
+    url: "app.hrbrain.io",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=90",
   },
 ];
 
@@ -231,26 +243,41 @@ export default function Portfolio() {
                 whileHover={{ y: -4 }}
                 className={`group rounded-2xl bg-gradient-to-br ${project.color} border ${project.border} overflow-hidden transition-all hover:shadow-[0_8px_40px_rgba(37,99,235,0.15)]`}
               >
-                {/* Project Image */}
-                <div className="h-48 relative overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  <div className="absolute bottom-3 left-4">
-                    <span className={`text-xs px-2.5 py-1 rounded-full font-semibold ${project.badge}`}>
-                      {project.category}
-                    </span>
+                {/* Project Image — browser chrome mockup */}
+                <div className="relative overflow-hidden">
+                  {/* Browser chrome bar */}
+                  <div className="bg-[#13182a] px-3 py-2.5 flex items-center gap-2 border-b border-slate-700/60 z-10 relative">
+                    <div className="flex gap-1.5 flex-shrink-0">
+                      <div className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/80" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-green-400/80" />
+                    </div>
+                    <div className="flex-1 mx-2 bg-slate-800/70 rounded px-2.5 py-1 flex items-center gap-1.5">
+                      <svg className="w-2.5 h-2.5 text-slate-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd"/></svg>
+                      <span className="text-slate-500 text-[10px] font-mono truncate">{project.url}</span>
+                    </div>
                   </div>
-                  <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <Link href={`/portfolio/${project.slug}`}>
-                      <div className="h-8 w-8 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
-                        <ExternalLink className="h-3.5 w-3.5 text-white" />
-                      </div>
-                    </Link>
+                  {/* Image */}
+                  <div className="h-52 relative overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                    <div className="absolute bottom-3 left-4">
+                      <span className={`text-xs px-2.5 py-1 rounded-full font-semibold ${project.badge}`}>
+                        {project.category}
+                      </span>
+                    </div>
+                    <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <Link href={`/portfolio/${project.slug}`}>
+                        <div className="h-8 w-8 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
+                          <ExternalLink className="h-3.5 w-3.5 text-white" />
+                        </div>
+                      </Link>
+                    </div>
                   </div>
                 </div>
 
