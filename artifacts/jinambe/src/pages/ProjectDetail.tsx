@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link, useParams } from "wouter";
-import { ArrowLeft, ArrowRight, CheckCircle2, Clock, Users, TrendingUp } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, Clock, Users, TrendingUp, ExternalLink } from "lucide-react";
 
 const projects: Record<string, {
   title: string;
@@ -12,6 +12,7 @@ const projects: Record<string, {
   tech: string[];
   color: string;
   image: string;
+  url: string;
   overview: string;
   challenge: string;
   solution: string;
@@ -28,7 +29,8 @@ const projects: Record<string, {
     teamSize: "4 engineers, 1 designer",
     tech: ["React", "Node.js", "PostgreSQL", "AWS", "HL7 FHIR", "Redis"],
     color: "from-teal-600/20 to-cyan-600/10",
-    image: "https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=1400&q=80",
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1400&q=90",
+    url: "https://app.medicare-pro.io",
     overview: "MediCare Pro is a comprehensive cloud-based hospital management system built to modernize operations across a network of three hospitals in Gujarat. The platform serves doctors, nurses, administrative staff, and hospital management with role-based access to every aspect of patient care and administration.",
     challenge: "The hospital group was running three separate software systems that didn't communicate with each other — a legacy billing system from 2008, a paper-based patient records system, and a disconnected appointment scheduling tool. Patient data was duplicated across systems, billing errors were frequent, and doctors had no access to prior patient history from other branches. The group needed a unified system that could be deployed across all three hospitals simultaneously without disrupting operations.",
     solution: "We designed MediCare Pro as a multi-tenant SaaS platform with complete data isolation between hospital branches, while enabling cross-branch patient record access for authorized physicians. We implemented a real-time synchronization layer using PostgreSQL's listen/notify mechanism, built a custom HL7 FHIR-compliant data layer for patient records, and developed an analytics dashboard that gives hospital management live visibility into occupancy, revenue, and clinical outcomes.",
@@ -66,7 +68,8 @@ const projects: Record<string, {
     teamSize: "3 engineers, 1 designer",
     tech: ["Next.js", "Stripe", "Redis", "PostgreSQL", "Elasticsearch", "AWS S3"],
     color: "from-orange-600/20 to-amber-600/10",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1400&q=80",
+    image: "https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&w=1400&q=90",
+    url: "https://shop.shopsphere.io",
     overview: "ShopSphere is a full-featured multi-vendor marketplace platform that empowers 200+ sellers to run their own digital storefronts under a unified platform. The system handles everything from product listings and inventory management to seller payouts and customer analytics.",
     challenge: "A consortium of local retailers wanted to compete with large e-commerce platforms by aggregating their inventory under a single online destination. They needed a platform that gave each seller full autonomy over their product catalog and pricing, while providing customers with a unified shopping cart and checkout experience across multiple sellers.",
     solution: "We built ShopSphere as a headless e-commerce architecture with Next.js App Router for the storefront, a custom Node.js seller dashboard, and Stripe Connect for split payment processing and automated seller payouts. Elasticsearch powers the product search across all 200+ sellers, and Redis handles the shopping cart and session state for near-instant page loads.",
@@ -135,6 +138,30 @@ export default function ProjectDetail() {
           animate={{ opacity: 1, y: 0 }}
           className="rounded-3xl border border-slate-800 overflow-hidden mb-12"
         >
+          {/* Browser chrome bar */}
+          <div className="bg-[#13182a] px-4 py-3 flex items-center gap-3 border-b border-slate-700/60">
+            <div className="flex gap-1.5 flex-shrink-0">
+              <div className="w-3 h-3 rounded-full bg-red-400/80" />
+              <div className="w-3 h-3 rounded-full bg-yellow-400/80" />
+              <div className="w-3 h-3 rounded-full bg-green-400/80" />
+            </div>
+            <div className="flex-1 mx-2 bg-slate-800/70 rounded-md px-3 py-1.5 flex items-center gap-2">
+              <svg className="w-3 h-3 text-slate-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd"/>
+              </svg>
+              <span className="text-slate-400 text-xs font-mono truncate">{project.url.replace("https://", "")}</span>
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-auto flex-shrink-0 text-slate-500 hover:text-slate-300 transition-colors"
+                title="Open live site"
+              >
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
+          </div>
+
           {/* Hero Image */}
           <div className="relative h-64 md:h-80">
             <img
@@ -244,8 +271,19 @@ export default function ProjectDetail() {
                 </div>
               </div>
 
-              <div className="mt-6 pt-6 border-t border-slate-800">
-                <p className="text-sm text-slate-400 mb-4">Interested in a similar solution for your business?</p>
+              <div className="mt-6 pt-6 border-t border-slate-800 space-y-3">
+                {/* Live Preview Button */}
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-semibold transition-all shadow-[0_0_20px_rgba(5,150,105,0.3)] hover:shadow-[0_0_28px_rgba(5,150,105,0.5)]"
+                >
+                  <ExternalLink className="h-4 w-4" />
+                  View Live Project
+                </a>
+
+                <p className="text-xs text-slate-500 mb-3 text-center">Interested in a similar solution?</p>
                 <Link href="/contact">
                   <button className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-primary hover:bg-primary/90 text-white text-sm font-semibold transition-all">
                     Start Your Project <ArrowRight className="h-4 w-4" />
