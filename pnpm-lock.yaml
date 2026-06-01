@@ -138,19 +138,6 @@ importers:
         version: 3.1.0
 
   artifacts/jinambe:
-    dependencies:
-      '@esbuild/win32-x64':
-        specifier: ^0.27.3
-        version: 0.27.3
-      '@rollup/rollup-win32-x64-msvc':
-        specifier: ^4.60.4
-        version: 4.60.4
-      '@tailwindcss/oxide-win32-x64-msvc':
-        specifier: ^4.3.0
-        version: 4.3.0
-      lightningcss-win32-x64-msvc:
-        specifier: ^1.32.0
-        version: 1.32.0
     devDependencies:
       '@hookform/resolvers':
         specifier: ^3.10.0
@@ -1728,11 +1715,6 @@ packages:
 
   '@rollup/rollup-win32-x64-msvc@4.60.3':
     resolution: {integrity: sha512-hPt/bgL5cE+Qp+/TPHBqptcAgPzgj46mPcg/16zNUmbQk0j+mOEQV/+Lqu8QRtDV3Ek95Q6FeFITpuhl6OTsAA==}
-    cpu: [x64]
-    os: [win32]
-
-  '@rollup/rollup-win32-x64-msvc@4.60.4':
-    resolution: {integrity: sha512-QVTUovf40zgTqlFVrKA1uXMVvU2QWEFWfAH8Wdc48IxLvrJMQVMBRjuQyUpzZCDkakImib9eVazbWlC6ksWtJw==}
     cpu: [x64]
     os: [win32]
 
@@ -3712,7 +3694,8 @@ snapshots:
   '@esbuild/win32-ia32@0.27.3':
     optional: true
 
-  '@esbuild/win32-x64@0.27.3': {}
+  '@esbuild/win32-x64@0.27.3':
+    optional: true
 
   '@floating-ui/core@1.7.5':
     dependencies:
@@ -4673,8 +4656,6 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.60.3':
     optional: true
 
-  '@rollup/rollup-win32-x64-msvc@4.60.4': {}
-
   '@scalar/helpers@0.5.2': {}
 
   '@scalar/helpers@0.6.0': {}
@@ -4779,7 +4760,8 @@ snapshots:
   '@tailwindcss/oxide-win32-arm64-msvc@4.3.0':
     optional: true
 
-  '@tailwindcss/oxide-win32-x64-msvc@4.3.0': {}
+  '@tailwindcss/oxide-win32-x64-msvc@4.3.0':
+    optional: true
 
   '@tailwindcss/oxide@4.3.0':
     optionalDependencies:
@@ -5547,7 +5529,8 @@ snapshots:
   lightningcss-win32-arm64-msvc@1.32.0:
     optional: true
 
-  lightningcss-win32-x64-msvc@1.32.0: {}
+  lightningcss-win32-x64-msvc@1.32.0:
+    optional: true
 
   lightningcss@1.32.0:
     dependencies:
