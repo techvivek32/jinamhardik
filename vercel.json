@@ -3,5 +3,9 @@
   "outputDirectory": "artifacts/jinambe/dist/public",
   "installCommand": "npm install -g pnpm && pnpm install --ignore-scripts",
   "framework": null,
+  "env": {
+    "PORT": "3000",
+    "BASE_PATH": "/"
+  },
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
