@@ -1,0 +1,8 @@
+
+  [32m[1mVITE[22m v7.3.3[39m  [2mready in [0m[1m1255[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m20637[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://192.168.1.37:[1m20637[22m/[39m
+[2m1:17:31 am[22m [36m[1m[vite][22m[39m [32martifacts/jinambe/vite.config.ts changed, restarting server...[39m
+[2m1:17:34 am[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m Re-optimizing dependencies because vite config has changed
+[2m1:17:36 am[22m [36m[1m[vite][22m[39m server restarted.
