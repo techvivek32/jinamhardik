@@ -1,0 +1,7 @@
+{
+  "buildCommand": "cd artifacts/jinambe && npx vite build --config vite.config.ts",
+  "outputDirectory": "artifacts/jinambe/dist/public",
+  "installCommand": "npm install -g pnpm && pnpm install --ignore-scripts",
+  "framework": null,
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
