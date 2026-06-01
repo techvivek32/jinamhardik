@@ -1,6 +1,6 @@
 {
   "buildCommand": "pnpm --filter @workspace/jinambe run build",
-  "outputDirectory": "public",
+  "outputDirectory": "artifacts/jinambe/dist",
   "installCommand": "npm install -g pnpm && pnpm install",
   "framework": null,
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
